@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const LinkButton = ({nameButton = 'Кнопка', className}) => {
     return (
-        <a className={`link-button ${className}`}>
+        <a href="/" className={`link-button ${className}`}>
             {nameButton}
         </a>
     );

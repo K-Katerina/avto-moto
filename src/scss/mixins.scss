@@ -1,5 +1,11 @@
 @import "colors";
 
+@mixin title {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
 @mixin menu-link {
   text-decoration: none;
   cursor: pointer;
@@ -19,11 +25,12 @@
 @mixin button {
   cursor: pointer;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  flex-grow: 1;
   justify-content: center;
   align-content: center;
+
+  letter-spacing: 0.12em;
 
   font-size: 14px;
   line-height: 19px;
@@ -31,7 +38,7 @@
   padding: 0 20px;
 
   min-height: 52px;
-  max-width: 196px;
+  max-width: max-content;
 
   background-color: $color-main;
   color: $color-background;
@@ -70,6 +77,8 @@
 
   min-height: 50px;
   width: 195px;
+
+  letter-spacing: normal;
 
   background-color: $color-background;
   color: $color-service--light;

@@ -23,7 +23,7 @@ const Slider = ({className}) => {
 
     return (
         <section className={`${className} slider`}>
-            <div className="slider__img">
+            <div className="slider__main-img">
                 <img src={images[currentImg].src}
                      width="600"
                      height="375"

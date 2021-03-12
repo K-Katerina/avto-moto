@@ -5,7 +5,7 @@ import {IconList} from '../icon-list/icon-list';
 
 const Description = () => {
     return (
-        <main className="description wrapper">
+        <main className="wrapper description">
             <Slider className="description__slider"/>
             <div className="description__wrapper">
                 <h1 className="description__title">Марпех 11</h1>

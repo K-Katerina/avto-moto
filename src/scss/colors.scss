@@ -1,0 +1,20 @@
+$color-crimson:              #D12136;
+
+$color-red:                  #FF0000;
+$color-white:                #FFFFFF;
+$color-black:                #000000;
+
+$color-grey:                 #48494D;
+$color-grey--light:          #BDBEC2;
+$color-grey--lighten:        #E5E5E5;
+$color-grey--lightest:       #F5F5F9;
+
+$color-main:                 $color-crimson;
+
+$color-service:              $color-black; // осн текст
+$color-service--light:       $color-grey; // плейсхолдер, осн текст
+$color-service--lighten:     $color-grey--light; // звездочки
+
+$color-background:           $color-grey--lighten;
+$color-background--dark:     $color-grey--lightest; // шапка, футер, попап
+$color-error:                $color-red;

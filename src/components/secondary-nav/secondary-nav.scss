@@ -1,0 +1,27 @@
+@import "../../scss/colors";
+
+.secondary-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: center;
+  align-content: center;
+  min-height: 82px;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 600;
+}
+
+.secondary-nav__item {
+  padding: 6px 2px;
+  margin-left: 62px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.secondary-nav__link {
+  @include menu-link;
+}

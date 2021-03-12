@@ -41,8 +41,13 @@ img {
 }
 
 .wrapper {
-  width: 1366px;
+  width: 1182px;
   position: relative;
-  padding: 0 98px;
   margin: 0 auto;
+  min-width: 320px;
+  padding: 0 0;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
 }

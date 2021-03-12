@@ -1,0 +1,15 @@
+@import "colors";
+
+@mixin menu-link {
+  text-decoration: none;
+  color: $color-service--light;
+
+  &--active {
+    color: $color-main;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-main--dark;
+  }
+}

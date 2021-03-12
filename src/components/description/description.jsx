@@ -7,9 +7,9 @@ const Description = () => {
     return (
         <div className="description wrapper">
             <Tab onClick={()=>(1)} nameButton="Характеристики"/>
-            <Button onClick={()=>(1)} nameButton="оставить отзыв" type="submit"/>
-            <LinkButton nameButton="оставить заявку"/>
-            <LinkButton nameButton="в кредит от 11 000 ₽" className="link-button--outline"/>
+            <Button onClick={()=>(1)} nameButton="Оставить отзыв" type="submit"/>
+            <LinkButton nameButton="Оставить заявку"/>
+            <LinkButton nameButton="В кредит от 11 000 ₽" className="link-button--outline"/>
         </div>
     );
 };

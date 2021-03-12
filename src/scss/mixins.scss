@@ -2,6 +2,7 @@
 
 @mixin menu-link {
   text-decoration: none;
+  cursor: pointer;
   color: $color-service--light;
 
   &--active {
@@ -10,11 +11,13 @@
 
   &:hover,
   &:focus {
+    transition: 0.3s ease;
     color: $color-main--dark;
   }
 }
 
 @mixin button {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -39,6 +42,7 @@
   &:hover,
   &:focus {
     background-color: $color-main--dark;
+    transition: 0.3s ease;
   }
 }
 

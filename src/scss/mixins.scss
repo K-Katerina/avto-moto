@@ -35,7 +35,7 @@
   font-size: 14px;
   line-height: 19px;
   font-weight: 600;
-  padding: 0 20px;
+  padding: 0 18px;
 
   min-height: 52px;
   max-width: max-content;
@@ -70,13 +70,12 @@
 @mixin tab {
   @include button-outline;
 
-  display: inline-block;
   font-size: 20px;
   line-height: 27px;
   font-weight: 400;
 
   min-height: 50px;
-  width: 195px;
+  min-width: 194px;
 
   letter-spacing: normal;
 

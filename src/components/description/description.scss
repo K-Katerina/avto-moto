@@ -2,12 +2,16 @@
 @import "../../scss/const-width";
 
 .description {
+  padding: 0 20px;
+}
+
+.description__info {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0 20px;
 
   justify-content: center;
+  margin-bottom: 39px;
 
   @media (min-width: $desktop-width) {
     justify-content: flex-start;

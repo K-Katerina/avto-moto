@@ -3,6 +3,11 @@
 .reviews {
 }
 
+.star--checked path {
+  fill: $color-main;
+  opacity: 1;
+}
+
 .reviews-list {
   display: flex;
   flex-direction: column;

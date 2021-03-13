@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Map} from '../map/map';
 
 const Contacts = ({className}) => {
     return (
@@ -31,7 +32,7 @@ const Contacts = ({className}) => {
                     </span>
                 </li>
             </ul>
-            <div className="contact__map">Map</div>
+            <Map className="contact__map">Map</Map>
         </article>
     );
 };

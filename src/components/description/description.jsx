@@ -13,8 +13,8 @@ const Description = () => {
                     <h1 className="description__title">Марпех 11</h1>
                     <IconList className="description__icons"/>
                     <p className="description__price">
-                        <span className="description__new-price">2 300 000 ₽</span>
-                        <small className="description__old-price">2 400 000 ₽</small>
+                        <span className="description__new-price">2&nbsp;300&nbsp;000&nbsp;₽</span>
+                        <small className="description__old-price">2&nbsp;400&nbsp;000&nbsp;₽</small>
                     </p>
                     <LinkButton nameButton="Оставить заявку" className="description__btn"/>
                     <LinkButton nameButton="В кредит от 11 000 ₽" className="description__btn" isOutline={true}/>

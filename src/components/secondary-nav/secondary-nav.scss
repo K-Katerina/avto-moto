@@ -1,4 +1,5 @@
 @import "../../scss/colors";
+@import "../../scss/const-width";
 
 .secondary-nav {
   display: flex;
@@ -11,6 +12,11 @@
   font-size: 16px;
   line-height: 21px;
   font-weight: 600;
+
+  @media (max-width: $mobile-width-only) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .secondary-nav__item {
@@ -18,6 +24,10 @@
   margin-left: 62px;
 
   &:first-child {
+    margin-left: 0;
+  }
+
+  @media (max-width: $mobile-width-only) {
     margin-left: 0;
   }
 }

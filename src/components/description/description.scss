@@ -7,13 +7,13 @@
 
 .description__info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 
-  justify-content: center;
   margin-bottom: 39px;
 
   @media (min-width: $desktop-width) {
+    flex-direction: row;
     justify-content: flex-start;
   }
 }
@@ -24,7 +24,17 @@
 
 .description__wrapper {
   display: inline-block;
-  padding: 0 55px;
+  padding: 0 5px;
+
+  @media (min-width: $desktop-width) {
+    padding: 0 55px;
+  }
+}
+
+.description__slider {
+  @media (max-width: $tablet-width-only) {
+    align-self: center;
+  }
 }
 
 .description__icons {
@@ -34,6 +44,7 @@
 .description__price {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin-bottom: 39px;
 }
 

@@ -17,10 +17,10 @@ const Description = () => {
                         <small className="description__old-price">2 400 000 ₽</small>
                     </p>
                     <LinkButton nameButton="Оставить заявку" className="description__btn"/>
-                    <LinkButton nameButton="В кредит от 11 000 ₽" className="description__btn link-button--outline"/>
+                    <LinkButton nameButton="В кредит от 11 000 ₽" className="description__btn" isOutline={true}/>
                 </div>
             </div>
-            <Tabs/>
+            <Tabs className="description__tabs"/>
         </main>
     );
 };

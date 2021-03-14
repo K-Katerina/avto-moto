@@ -45,7 +45,7 @@
   position: relative;
 }
 
-.reviews-list__title--dignity:before {
+.reviews-list__title--dignity::before {
   position: absolute;
   content: '+';
   left: -20px;
@@ -55,7 +55,7 @@
   color: $color-main
 }
 
-.reviews-list__title--limitations:before {
+.reviews-list__title--limitations::before {
   position: absolute;
   content: '-';
   left: -20px;

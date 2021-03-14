@@ -63,7 +63,7 @@
   font-weight: 400;
   opacity: .5;
 
-  &:before {
+  &::before {
     content: "";
     bottom: 50%;
     border-bottom: 1px solid $color-service--light;

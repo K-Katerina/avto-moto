@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect, Switch, Route, BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import {CarPage} from '../../pages/car-page';
 
 const App = () => {

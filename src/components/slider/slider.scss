@@ -23,7 +23,7 @@
 .slider__main-img {
   position: relative;
 
-  &:after {
+  &::after {
     position: absolute;
     content: '';
     left: 0;

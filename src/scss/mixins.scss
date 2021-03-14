@@ -98,3 +98,14 @@
   }
 }
 
+@mixin mandatory {
+  position: absolute;
+  content: '*';
+  left: 10px;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  color: $color-main;
+  z-index: 60;
+}
+

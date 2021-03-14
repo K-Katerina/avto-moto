@@ -1,39 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {RatingBar} from '../rating-bar/rating-bar';
+import {RatingStar} from '../rating-star/rating-star';
+import {useSelector} from 'react-redux';
+import {RATING_VALUES} from '../../const';
 
 const ReviewsList = ({className}) => {
 
-    const temporaryVariable = 3;
+    const reviews = useSelector(state => state.reviews);
 
     return (
         <ul className={`reviews-list ${className}`}>
-                <li className="reviews-list__item">
-                    <span className="reviews-list__name">Борис Иванов</span>
+            {reviews.map((review, index) =>
+                <li key={index} className="reviews-list__item">
+                    <span className="reviews-list__name">{review.name}</span>
 
                     <span className="reviews-list__txt reviews-list__txt--padding">
                         <b className="reviews-list__title reviews-list__title--dignity">Достоинства</b>
-                        мощность, внешний вид
+                        {review.dignity}
                     </span>
 
                     <span className="reviews-list__txt reviews-list__txt--padding">
                         <b className="reviews-list__title reviews-list__title--limitations">Недостатки</b>
-                        Слабые тормозные колодки (пришлось заменить)
+                        {review.limitations}
                     </span>
 
                     <span className="reviews-list__txt">
                         <b className="reviews-list__title reviews-list__title--comment">Комментарий</b>
-                        Взяли по трейд-ин, на выгодных условиях у дилера. Стильная внешка и крут по базовым характеристикам. Не думал, что пересяду на китайский автопром, но сейчас гоняю и понимаю, что полностью доволен.
+                        {review.comment}
                     </span>
 
                     <div className="reviews-list__footer">
-                        <RatingBar className="reviews-list__rating" rating={temporaryVariable}/>
-                        <span className="reviews-list__summary">Советует</span>
+                        <div className="reviews-list__rating">
+                            {RATING_VALUES.map((value) =>
+                                <React.Fragment key={value}>
+                                    <RatingStar className="reviews-list__star" isChecked={+review.rating >= +value}/>
+                                </React.Fragment>
+                            )}
+                        </div>
+                        <span className="reviews-list__summary">{+review.rating >= 3 ? 'Советует' : 'Не советует'}</span>
                         <span className="reviews-list__time">1 минуту назад</span>
                         <a className="reviews-list__review" href="/">Ответить</a>
                     </div>
                 </li>
-            </ul>
+            )}
+        </ul>
     );
 };
 

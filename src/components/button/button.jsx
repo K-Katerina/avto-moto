@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Button = ({nameButton = 'Кнопка', onClick, className, disabled = false, type = 'button', isOutline}) => {
     return (
-        <button onClick={() => onClick()}
+        <button onClick={(evt) => onClick(evt)}
                 disabled={disabled}
                 className={`button ${className} ${isOutline && 'link-button--outline'}`}
                 type={type}>

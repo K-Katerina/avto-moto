@@ -6,6 +6,10 @@
   &--mandatory::before {
     @include mandatory;
   }
+
+  &--error .textarea__block {
+    border-color: $color-error;
+  }
 }
 
 .textarea__block {
@@ -19,10 +23,6 @@
   &:focus,
   &:hover {
     border-color: $color-service--dark;
-  }
-
-  &--error {
-    border-color: $color-error;
   }
 }
 

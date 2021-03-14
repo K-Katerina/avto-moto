@@ -14,12 +14,12 @@ $color-grey--lighten: #f5f5f9;
 $color-main:                 $color-crimson;
 $color-main--dark:           $color-crimson--dark;
 
-$color-service:              $color-black; // осн текст
-$color-service--light:       $color-grey; // плейсхолдер, осн текст
-$color-service--lighten:     $color-grey--light; // звездочки
+$color-service:              $color-black;
+$color-service--light:       $color-grey;
+$color-service--lighten:     $color-grey--light;
 
 $color-service--dark:        $color-indigo;
 
 $color-background:           $color-white;
-$color-background--dark:     $color-grey--lighten; // шапка, футер, попап
+$color-background--dark:     $color-grey--lighten;
 $color-error:                $color-red;

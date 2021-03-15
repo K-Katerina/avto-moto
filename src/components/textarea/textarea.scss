@@ -3,36 +3,21 @@
 .textarea {
   position: relative;
 
-  &--mandatory::before {
-    @include mandatory;
-  }
-
   &--error .textarea__block {
     border-color: $color-error;
+  }
+
+  &--mandatory::before {
+    @include mandatory;
   }
 }
 
 .textarea__block {
-  display: block;
-  width: 300px;
-  border: 1px $color-service--lighten solid;
+  @include input-field;
   height: 114px;
-  padding: 15px 25px;
   resize: vertical;
-
-  &:focus,
-  &:hover {
-    border-color: $color-service--dark;
-  }
 }
 
 .textarea__error {
-  position: absolute;
-  left: 0;
-  top: -19px;
-  font-size: 14px;
-  line-height: 19px;
-  font-weight: 400;
-  color: $color-main;
-  z-index: 60;
+  @include error-message;
 }

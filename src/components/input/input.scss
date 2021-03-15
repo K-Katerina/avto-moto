@@ -12,30 +12,10 @@
   }
 }
 
-.input__error {
-  position: absolute;
-  left: 0;
-  top: -19px;
-  font-size: 14px;
-  line-height: 19px;
-  font-weight: 400;
-  color: $color-main;
-  z-index: 60;
-}
-
 .input__block {
-  font-size: 14px;
-  line-height: 19px;
-  font-weight: 400;
-  vertical-align: middle;
-  display: inline-block;
-
-  width: 300px;
-  padding: 15px 25px;
-  border: 1px $color-service--lighten solid;
+  @include input-field;
 }
 
-.input:hover .input__block,
-.input:focus .input__block {
-  border-color: $color-service--dark;
+.input__error {
+  @include error-message;
 }

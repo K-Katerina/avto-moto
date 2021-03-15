@@ -2,16 +2,9 @@
 @import "../../scss/const-width";
 
 .secondary-nav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  justify-content: center;
-  align-content: center;
+  @include flex-row-center;
+
   min-height: 82px;
-  font-size: 16px;
-  line-height: 21px;
-  font-weight: 600;
 
   @media (max-width: $mobile-width-only) {
     flex-direction: column;

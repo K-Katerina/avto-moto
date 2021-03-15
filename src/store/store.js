@@ -2,29 +2,32 @@ import {createStore} from 'redux';
 import {REVIEWS_STORAGE_KEY} from '../const';
 import reducer from './reducers/reducer';
 
-const initialState = {
-    reviews: [{
-        name: 'Борис Иванов',
-        dignity: 'мощность, внешний вид',
-        limitations: 'Слабые тормозные колодки (пришлось заменить)',
-        comment: 'Взяли по трейд-ин, на выгодных условиях у дилера. Стильная внешка и крут по базовым характеристикам. Не думал, что пересяду на китайский автопром, но сейчас гоняю и понимаю, что полностью доволен.',
-        rating: '3',
-        date: new Date('2021-02-28')
-    }],
-    isOpenModal: false
+const DEFAULT_REVIEW = {
+    name: 'Борис Иванов',
+    dignity: 'мощность, внешний вид',
+    limitations: 'Слабые тормозные колодки (пришлось заменить)',
+    comment: 'Взяли по трейд-ин, на выгодных условиях у дилера. Стильная внешка и крут по базовым характеристикам. Не думал, что пересяду на китайский автопром, но сейчас гоняю и понимаю, что полностью доволен.',
+    rating: '3',
+    date: new Date('2021-02-28')
 };
+
+const createInitialState = (reviews) => ({
+    reviews: reviews || [DEFAULT_REVIEW],
+    isOpenModal: false
+});
 
 export const loadState = () => {
     try {
-        return JSON.parse(localStorage.getItem(REVIEWS_STORAGE_KEY)) || initialState;
+        const reviews = JSON.parse(localStorage.getItem(REVIEWS_STORAGE_KEY));
+        return createInitialState(reviews);
     } catch (err) {
         localStorage.removeItem(REVIEWS_STORAGE_KEY);
-        return initialState;
+        return createInitialState();
     }
 };
 
 export const saveState = (state) => {
-    localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(state));
+    localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(state.reviews));
 };
 
 export const initStore = () => {

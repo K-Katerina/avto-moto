@@ -54,9 +54,7 @@
 .review-form__right {
   display: flex;
   flex-direction: column;
-}
 
-.review-form__right {
   @media (max-width: $mobile-width-only) {
     flex-direction: column-reverse;
   }
@@ -73,11 +71,18 @@
   margin-bottom: 12px;
 }
 
-.review-form__rating {
-  display: block;
-  margin-bottom: 26px;
+.review-form__stars-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  margin-bottom: 27px;
 
   @media (max-width: $mobile-width-only) {
+    margin-top: 20px;
+    flex-direction: column;
     align-self: center;
     margin-bottom: 0;
   }

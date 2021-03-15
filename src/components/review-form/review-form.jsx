@@ -1,13 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {RATING_VALUES} from '../../const';
 import {Button} from '../button/button';
 import {Input} from '../input/input';
 import {Textarea} from '../textarea/textarea';
 import {CloseButton} from '../close-button/close-button';
 import {openModal, saveNewReview} from '../../store/actions/actions';
-import {Star} from '../star/star';
 import {extend} from '../utils';
+import {StarBar} from '../star-bar/star-bar';
 
 const ReviewForm = () => {
     const dispatch = useDispatch();
@@ -30,20 +29,18 @@ const ReviewForm = () => {
         comment: false
     });
 
-    const [a, setA] = useState(0);
-
-    const escFunction = (event) => {
-        if (event.keyCode === 27) {
-            closeForm();
-        }
-    };
-
     useEffect(() => {
         document.addEventListener('keydown', escFunction);
         return () => {
             document.removeEventListener('keydown', escFunction);
         };
     }, [isOpen]);
+
+    const escFunction = (event) => {
+        if (event.keyCode === 27) {
+            closeForm();
+        }
+    };
 
     const closeForm = () => {
         setError({name: false, comment: false});
@@ -80,7 +77,7 @@ const ReviewForm = () => {
             <div className="overlay" ref={overlayRef} onClick={onOverlayClick}>
                 <form className="review-form">
                     <h2 className="review-form__title">Оставить отзыв</h2>
-                    <CloseButton onClick={closeForm}/>
+                    <CloseButton onClick={closeForm} className="review-form__close"/>
                     <div className="review-form__wrapper">
                         <div className="review-form__left">
                             <Input autoFocus onChange={(evt) => handleFieldChange(evt)} className="review-form__input"
@@ -92,22 +89,11 @@ const ReviewForm = () => {
                                    placeholder="Недостатки" name="limitations" value={limitations}/>
                         </div>
                         <div className="review-form__right">
-                            {/*  TODO Вынести звездочки в отдельный компонент */}
-                            <span className="review-form__rating" onMouseLeave={() => setA(review.rating)}>Оцените товар:
-                                {RATING_VALUES.map((value) =>
-                                    <React.Fragment key={value}>
-                                        <input onChange={(evt) => handleFieldChange(evt)} checked={value === rating}
-                                               className="review-form__rating-input visually-hidden" name="rating"
-                                               value={value}
-                                               id={`${value}-stars`} type="radio"/>
-                                        <label htmlFor={`${value}-stars`} className="review-form__rating-label"
-                                               title={`${value}-stars`} onMouseOver={() => setA(value)}>
-                                            <Star className="review-form__star"
-                                                  isChecked={(a || rating) >= value}/>
-                                        </label>
-                                    </React.Fragment>
-                                )}
-                            </span>
+                            <div className="review-form__stars-wrapper">
+                                <span className="review-form__stars-text">Оцените товар:</span>
+                                <StarBar className="review-form__star-bar" onChange={(evt) => handleFieldChange(evt)}
+                                         rating={rating} size={30}/>
+                            </div>
                             <Textarea onChange={(evt) => handleFieldChange(evt)} className="review-form__textarea"
                                       placeholder="Комментарий" isMandatory={true} name="comment" value={comment}
                                       label={isError.comment ? 'Пожалуйста, заполните поле' : ''}/>

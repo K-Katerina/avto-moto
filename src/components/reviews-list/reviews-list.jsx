@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Star} from '../star/star';
 import {useSelector} from 'react-redux';
-import {RATING_VALUES} from '../../const';
 import {getDate} from '../utils';
+import {StarBar} from '../star-bar/star-bar';
 
 const ReviewsList = ({className}) => {
 
@@ -31,14 +30,7 @@ const ReviewsList = ({className}) => {
                     </span>
 
                     <div className="reviews-list__footer">
-                        <div className="reviews-list__rating">
-                            {/*TODO*/}
-                            {RATING_VALUES.map((value) =>
-                                <React.Fragment key={value}>
-                                    <Star className="reviews-list__star" isChecked={+review.rating >= +value}/>
-                                </React.Fragment>
-                            )}
-                        </div>
+                        <StarBar className="reviews-list__rating" rating={review.rating} size={17}/>
                         <span
                             className="reviews-list__summary">{+review.rating >= 3 ? 'Советует' : 'Не советует'}</span>
                         <time className="reviews-list__time" dateTime={review.date}>{getDate(review.date)}</time>

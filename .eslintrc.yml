@@ -24,4 +24,3 @@ plugins:
 settings:
   react:
     version: '16'
-

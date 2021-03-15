@@ -20,8 +20,7 @@ const StarBar = ({className, onChange, rating = 0, size}) => {
                            title={`${value}-stars`} onMouseOver={() => !readOnly && setTemporaryRating(value)}>
                         <Star className="star-bar__star-img"
                               isChecked={(temporaryRating || rating) >= value}
-                              size={size}
-                        />
+                              size={size}/>
                     </label>
                 </React.Fragment>
             )}

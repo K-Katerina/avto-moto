@@ -1,5 +1,5 @@
 import moment from 'moment';
-import {MONTH_NAMES} from '../const';
+import {MONTH_NAMES} from './const';
 
 export const extend = (a, b) => Object.assign({}, a, b);
 

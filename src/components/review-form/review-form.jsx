@@ -5,15 +5,16 @@ import {Input} from '../input/input';
 import {Textarea} from '../textarea/textarea';
 import {CloseButton} from '../close-button/close-button';
 import {openModal, saveNewReview} from '../../store/actions/actions';
-import {extend} from '../utils';
+import {extend} from '../../utils';
 import {StarBar} from '../star-bar/star-bar';
+import {ESC_CODE} from '../../const';
 
 const ReviewForm = () => {
     const dispatch = useDispatch();
     const isOpen = useSelector(state => state.isOpenModal);
     const overlayRef = useRef();
 
-    const initialState = {
+    const emptyFormData = {
         name: '',
         dignity: '',
         limitations: '',
@@ -21,7 +22,7 @@ const ReviewForm = () => {
         rating: '0'
     };
 
-    const [review, setReview] = useState({...initialState});
+    const [review, setReview] = useState({...emptyFormData});
     const {name, dignity, limitations, comment, rating} = review;
 
     const [isError, setError] = useState({
@@ -37,14 +38,14 @@ const ReviewForm = () => {
     }, [isOpen]);
 
     const escFunction = (event) => {
-        if (event.keyCode === 27) {
+        if (event.keyCode === ESC_CODE) {
             closeForm();
         }
     };
 
     const closeForm = () => {
         setError({name: false, comment: false});
-        setReview({...initialState});
+        setReview({...emptyFormData});
         dispatch(openModal(false));
     };
 
@@ -52,7 +53,7 @@ const ReviewForm = () => {
         evt.preventDefault();
         if (name && comment) {
             dispatch(saveNewReview(extend({...review}, {date: new Date()})));
-            setReview({...initialState});
+            setReview({...emptyFormData});
             dispatch(openModal(false));
         } else {
             setError({name: !name, comment: !comment});

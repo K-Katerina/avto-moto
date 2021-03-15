@@ -32,7 +32,7 @@ const Slider = ({className}) => {
             </div>
 
             <div className="slider__nav">
-                <Arrow className="slider__arrow" isRotate={true} onClick={() => (setNewCurrentImg(currentImg + -1))}
+                <Arrow className="slider__arrow" isRotate={true} onClick={() => setNewCurrentImg(currentImg + -1)}
                        disabled={currentImg <= 0}/>
                 {images.map((img, index) =>
                     <img key={index}
@@ -42,7 +42,7 @@ const Slider = ({className}) => {
                          alt={img.alt}
                          className="slider__img"/>
                 )}
-                <Arrow className="slider__arrow" onClick={() => (setNewCurrentImg(currentImg + 1))}
+                <Arrow className="slider__arrow" onClick={() => setNewCurrentImg(currentImg + 1)}
                        disabled={currentImg >= images.length - 1}/>
             </div>
         </section>

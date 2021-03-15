@@ -7,5 +7,7 @@ export const Actions = {
 
 export const RATING_VALUES = ['1', '2', '3', '4', '5'];
 
+export const ESC_CODE = 27;
+
 export const MONTH_NAMES = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля',
                             'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];

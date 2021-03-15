@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
-import {getDate} from '../utils';
+import {getDate} from '../../utils';
 import {StarBar} from '../star-bar/star-bar';
 
 const ReviewsList = ({className}) => {

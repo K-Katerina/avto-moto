@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {RatingStar} from '../rating-star/rating-star';
 import {useSelector} from 'react-redux';
 import {RATING_VALUES} from '../../const';
+import {getDate} from '../utils';
 
 const ReviewsList = ({className}) => {
 
@@ -38,7 +39,7 @@ const ReviewsList = ({className}) => {
                             )}
                         </div>
                         <span className="reviews-list__summary">{+review.rating >= 3 ? 'Советует' : 'Не советует'}</span>
-                        <span className="reviews-list__time">1 минуту назад</span>
+                        <time className="reviews-list__time" dateTime={review.date}>{getDate(review.date)}</time>
                         <a className="reviews-list__review" href="/">Ответить</a>
                     </div>
                 </li>

@@ -8,6 +8,7 @@ import {CloseButton} from '../close-button/close-button';
 import {openModal, saveNewReview} from '../../store/actions/actions';
 import {RATING_VALUES} from '../../const';
 import {RatingStar} from '../rating-star/rating-star';
+import {extend} from '../utils';
 
 const ReviewForm = () => {
     const dispatch = useDispatch();
@@ -29,6 +30,8 @@ const ReviewForm = () => {
         name: false,
         comment: false
     });
+
+    const [a, setA] = useState(0);
 
     const escFunction = (event) => {
         if (event.keyCode === 27) {
@@ -52,7 +55,7 @@ const ReviewForm = () => {
     const onSubmit = (evt) => {
         evt.preventDefault();
         if (name && comment) {
-            dispatch(saveNewReview({...review}));
+            dispatch(saveNewReview(extend({...review}, {date: new Date()})));
             setReview({...initialState});
             dispatch(openModal(false));
         } else {
@@ -62,7 +65,7 @@ const ReviewForm = () => {
 
     const handleFieldChange = (evt) => {
         const {name, value} = evt.target;
-        setReview((prevComment) => Object.assign({}, prevComment, {[name]: value}));
+        setReview((prevComment) => extend(prevComment, {[name]: value}));
         if (isError.name || isError.comment) {
             setError({name: !review.name, comment: !review.comment});
         }
@@ -90,17 +93,18 @@ const ReviewForm = () => {
                                    placeholder="Недостатки" name="limitations" value={limitations}/>
                         </div>
                         <div className="review-form__right">
-                            <span className="review-form__rating">Оцените товар:
+                            {/*  TODO Вынести звездочки в отдельный компонент */}
+                            <span className="review-form__rating" onMouseLeave={() => setA(review.rating)}>Оцените товар:
                                 {RATING_VALUES.map((value) =>
                                     <React.Fragment key={value}>
                                         <input onChange={(evt) => handleFieldChange(evt)} checked={value === rating}
                                                className="review-form__rating-input visually-hidden" name="rating"
                                                value={value}
                                                id={`${value}-stars`} type="radio"/>
-
                                         <label htmlFor={`${value}-stars`} className="review-form__rating-label"
-                                               title={`${value}-stars`}>
-                                            <RatingStar className="review-form__star" isChecked={+rating >= +value}/>
+                                               title={`${value}-stars`} onMouseOver={() => setA(value)}>
+                                            <RatingStar className="review-form__star"
+                                                        isChecked={(a || rating) >= value}/>
                                         </label>
                                     </React.Fragment>
                                 )}

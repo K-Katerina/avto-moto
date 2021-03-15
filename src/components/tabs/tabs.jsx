@@ -29,7 +29,7 @@ const Tabs = ({className}) => {
 };
 
 Tabs.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {Tabs};

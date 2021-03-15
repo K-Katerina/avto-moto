@@ -13,7 +13,7 @@ const MainNav = ({className}) => {
 };
 
 MainNav.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {MainNav};

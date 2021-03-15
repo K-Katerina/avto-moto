@@ -38,7 +38,7 @@ const Contacts = ({className}) => {
 };
 
 Contacts.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {Contacts};

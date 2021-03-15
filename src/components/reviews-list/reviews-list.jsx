@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {RatingStar} from '../rating-star/rating-star';
+import {Star} from '../star/star';
 import {useSelector} from 'react-redux';
 import {RATING_VALUES} from '../../const';
 import {getDate} from '../utils';
@@ -32,13 +32,15 @@ const ReviewsList = ({className}) => {
 
                     <div className="reviews-list__footer">
                         <div className="reviews-list__rating">
+                            {/*TODO*/}
                             {RATING_VALUES.map((value) =>
                                 <React.Fragment key={value}>
-                                    <RatingStar className="reviews-list__star" isChecked={+review.rating >= +value}/>
+                                    <Star className="reviews-list__star" isChecked={+review.rating >= +value}/>
                                 </React.Fragment>
                             )}
                         </div>
-                        <span className="reviews-list__summary">{+review.rating >= 3 ? 'Советует' : 'Не советует'}</span>
+                        <span
+                            className="reviews-list__summary">{+review.rating >= 3 ? 'Советует' : 'Не советует'}</span>
                         <time className="reviews-list__time" dateTime={review.date}>{getDate(review.date)}</time>
                         <a className="reviews-list__review" href="/">Ответить</a>
                     </div>
@@ -49,7 +51,7 @@ const ReviewsList = ({className}) => {
 };
 
 ReviewsList.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {ReviewsList};

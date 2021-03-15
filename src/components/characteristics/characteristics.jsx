@@ -40,7 +40,7 @@ const Characteristics = ({className}) => {
 };
 
 Characteristics.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {Characteristics};

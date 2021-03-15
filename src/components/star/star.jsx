@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RatingStar = ({className, isChecked = false}) => {
+const Star = ({className, isChecked = false}) => {
 
     return (
         <svg className={`${className} star ${isChecked && 'star--checked'}`}
@@ -12,9 +12,9 @@ const RatingStar = ({className, isChecked = false}) => {
     );
 };
 
-RatingStar.propTypes = {
-    className: PropTypes.string,
+Star.propTypes = {
+    className: PropTypes.string.isRequired,
     isChecked: PropTypes.bool
 };
 
-export {RatingStar};
+export {Star};

@@ -13,8 +13,8 @@ const Arrow = ({isRotate = false, onClick, className, disabled = false}) => {
 Arrow.propTypes = {
     isRotate: PropTypes.bool,
     disabled: PropTypes.bool,
-    onClick: PropTypes.func,
-    className: PropTypes.string
+    onClick: PropTypes.func.isRequired,
+    className: PropTypes.string.isRequired
 };
 
 export {Arrow};

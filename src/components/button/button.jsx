@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({nameButton = 'Кнопка', onClick, className, disabled = false, type = 'button', isOutline}) => {
+const Button = ({nameButton, onClick, className, disabled = false, type = 'button', isOutline}) => {
     return (
         <button onClick={(evt) => onClick(evt)}
                 disabled={disabled}
@@ -13,10 +13,10 @@ const Button = ({nameButton = 'Кнопка', onClick, className, disabled = fal
 };
 
 Button.propTypes = {
-    className: PropTypes.string,
-    nameButton: PropTypes.string,
+    className: PropTypes.string.isRequired,
+    nameButton: PropTypes.string.isRequired,
     type: PropTypes.string,
-    onClick: PropTypes.func,
+    onClick: PropTypes.func.isRequired,
     isOutline: PropTypes.bool,
     disabled: PropTypes.bool
 };

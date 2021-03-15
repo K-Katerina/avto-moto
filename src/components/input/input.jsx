@@ -7,15 +7,16 @@ const Input = ({className, autoFocus, onChange, value, label = '', placeholder, 
             <span className="input__error">
               {label}
             </span>
-            <input autoFocus={autoFocus} name={name} onChange={(evt) => onChange(evt)} value={value} placeholder={placeholder} className="input__block"/>
+            <input onChange={(evt) => onChange(evt)} value={value}
+                   placeholder={placeholder} autoFocus={autoFocus} name={name} className="input__block"/>
         </label>
     );
 };
 
 Input.propTypes = {
-    className: PropTypes.string,
+    className: PropTypes.string.isRequired,
     name: PropTypes.string,
-    onChange: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
     autoFocus: PropTypes.bool,
     value: PropTypes.string,
     label: PropTypes.string,

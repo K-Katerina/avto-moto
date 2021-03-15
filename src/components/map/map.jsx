@@ -12,7 +12,7 @@ const Map = ({className}) => {
 };
 
 Map.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {Map};

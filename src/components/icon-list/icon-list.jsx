@@ -30,7 +30,7 @@ const IconList = ({className}) => {
 };
 
 IconList.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {IconList};

@@ -13,7 +13,7 @@ const Logo = ({className}) => {
 };
 
 Logo.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {Logo};

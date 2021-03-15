@@ -1,13 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
-import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
+import {RATING_VALUES} from '../../const';
 import {Button} from '../button/button';
 import {Input} from '../input/input';
 import {Textarea} from '../textarea/textarea';
 import {CloseButton} from '../close-button/close-button';
 import {openModal, saveNewReview} from '../../store/actions/actions';
-import {RATING_VALUES} from '../../const';
-import {RatingStar} from '../rating-star/rating-star';
+import {Star} from '../star/star';
 import {extend} from '../utils';
 
 const ReviewForm = () => {
@@ -103,8 +102,8 @@ const ReviewForm = () => {
                                                id={`${value}-stars`} type="radio"/>
                                         <label htmlFor={`${value}-stars`} className="review-form__rating-label"
                                                title={`${value}-stars`} onMouseOver={() => setA(value)}>
-                                            <RatingStar className="review-form__star"
-                                                        isChecked={(a || rating) >= value}/>
+                                            <Star className="review-form__star"
+                                                  isChecked={(a || rating) >= value}/>
                                         </label>
                                     </React.Fragment>
                                 )}
@@ -121,12 +120,6 @@ const ReviewForm = () => {
             }
         </>
     );
-};
-
-ReviewForm.propTypes = {
-    isOpen: PropTypes.bool,
-    onSubmit: PropTypes.func,
-    onClose: PropTypes.func
 };
 
 export {ReviewForm};

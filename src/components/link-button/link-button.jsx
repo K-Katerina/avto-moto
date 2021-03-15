@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LinkButton = ({nameButton = 'Кнопка', className, isOutline = false}) => {
+const LinkButton = ({nameButton, className, isOutline = false}) => {
     return (
         <a href="/" className={`link-button ${className} ${isOutline && 'link-button--outline'}`}>
             {nameButton}
@@ -10,8 +10,8 @@ const LinkButton = ({nameButton = 'Кнопка', className, isOutline = false})
 };
 
 LinkButton.propTypes = {
-    className: PropTypes.string,
-    nameButton: PropTypes.string,
+    className: PropTypes.string.isRequired,
+    nameButton: PropTypes.string.isRequired,
     isOutline: PropTypes.bool
 };
 

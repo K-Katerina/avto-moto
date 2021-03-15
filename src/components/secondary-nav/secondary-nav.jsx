@@ -44,7 +44,7 @@ const SecondaryNav = ({className}) => {
 };
 
 SecondaryNav.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {SecondaryNav};

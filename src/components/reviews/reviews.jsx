@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ReviewsList} from '../reviews-list/reviews-list';
 import {useDispatch} from 'react-redux';
+import {ReviewsList} from '../reviews-list/reviews-list';
 import {openModal} from '../../store/actions/actions';
 import {Button} from '../button/button';
 
@@ -23,7 +23,7 @@ const Reviews = ({className}) => {
 };
 
 Reviews.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export {Reviews};

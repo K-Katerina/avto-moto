@@ -16,7 +16,7 @@
   &:focus {
     opacity: .6;
     transition: 0.2s ease;
-    box-shadow:  $color-main 0 0 6px 1px;
+    box-shadow: $color-main 0 0 6px 1px;
   }
 
   &[disabled] {

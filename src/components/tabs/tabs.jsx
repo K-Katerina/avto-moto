@@ -4,26 +4,26 @@ import {Characteristics} from '../characteristics/characteristics';
 import {Reviews} from '../reviews/reviews';
 import {Contacts} from '../contacts/contacts';
 import PropTypes from 'prop-types';
+import {Tabs as TabTitles} from '../../const';
+import {TabNames} from '../../const';
 
 const Tabs = ({className}) => {
-    const [tab, setTab] = useState('characteristics');
+
+    const [tab, setTab] = useState(TabTitles.CHARACTERISTICS);
+
     return (
         <section className={`tabs ${className}`}>
             <div className="tabs__wrapper">
-                <Tab onClick={() => setTab('characteristics')}
-                     className={`tabs__characteristics-btn ${tab === 'characteristics' && 'tab--active'}`}
-                     nameButton='Характеристики'/>
-                <Tab onClick={() => setTab('reviews')}
-                     className={`tabs__reviews-btn ${tab === 'reviews' && 'tab--active'}`}
-                     nameButton='Отзывы'/>
-                <Tab onClick={() => setTab('contacts')}
-                     className={`tabs__contacts-btn ${tab === 'contacts' && 'tab--active'}`}
-                     nameButton='Контакты'/>
+                {Object.keys(TabTitles).map((key) =>
+                    <Tab key={key}
+                         onClick={() => setTab(key)}
+                         className={`tabs__${key}-btn ${tab === key && 'tab--active'}`}
+                         nameButton={TabNames[key]}/>
+                )}
             </div>
-
-            {tab === 'characteristics' && <Characteristics className="tabs__characteristics"/>}
-            {tab === 'reviews' && <Reviews className="tabs__reviews"/>}
-            {tab === 'contacts' && <Contacts className="tabs__contacts"/>}
+            {tab === TabTitles.CHARACTERISTICS && <Characteristics className={`tabs__${TabTitles.CHARACTERISTICS}`}/>}
+            {tab === TabTitles.REVIEWS && <Reviews className={`tabs__${TabTitles.REVIEWS}`}/>}
+            {tab === TabTitles.CONTACTS && <Contacts className={`tabs__${TabTitles.CONTACTS}`}/>}
         </section>
     );
 };

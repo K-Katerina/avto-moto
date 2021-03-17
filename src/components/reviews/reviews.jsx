@@ -9,14 +9,14 @@ const Reviews = ({className}) => {
 
     const dispatch = useDispatch();
 
-    const openReviewForm = () => {
+    const onOpenFormButtonClick = () => {
         dispatch(openModal(true));
     };
 
     return (
         <article className={`reviews ${className}`}>
             <h2 className="visually-hidden reviews__title">Отзывы</h2>
-            <Button className="reviews__btn" nameButton="оставить отзыв" onClick={openReviewForm} isOutline={true}/>
+            <Button className="reviews__btn" nameButton="оставить отзыв" onClick={onOpenFormButtonClick} isOutline={true}/>
             <ReviewsList className="reviews__list"/>
         </article>
     );

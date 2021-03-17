@@ -31,17 +31,11 @@ const ReviewForm = () => {
     });
 
     useEffect(() => {
-        document.addEventListener('keydown', escFunction);
+        document.addEventListener('keydown', onEscClick);
         return () => {
-            document.removeEventListener('keydown', escFunction);
+            document.removeEventListener('keydown', onEscClick);
         };
     }, [isOpen]);
-
-    const escFunction = (event) => {
-        if (event.keyCode === ESC_CODE) {
-            closeForm();
-        }
-    };
 
     const closeForm = () => {
         setError({name: false, comment: false});
@@ -49,7 +43,17 @@ const ReviewForm = () => {
         dispatch(openModal(false));
     };
 
-    const onSubmit = (evt) => {
+    const onCloseFormButtonClick = () => {
+        closeForm();
+    };
+
+    const onEscClick = (event) => {
+        if (event.keyCode === ESC_CODE) {
+            closeForm();
+        }
+    };
+
+    const onSubmitClick = (evt) => {
         evt.preventDefault();
         if (name && comment) {
             dispatch(saveNewReview(extend({...review}, {date: new Date()})));
@@ -60,7 +64,7 @@ const ReviewForm = () => {
         }
     };
 
-    const handleFieldChange = (evt) => {
+    const onFieldChange = (evt) => {
         const {name, value} = evt.target;
         setReview((prevComment) => extend(prevComment, {[name]: value}));
         if (isError.name || isError.comment) {
@@ -78,29 +82,29 @@ const ReviewForm = () => {
             <div className="overlay" ref={overlayRef} onClick={onOverlayClick}>
                 <form className="review-form">
                     <h2 className="review-form__title">Оставить отзыв</h2>
-                    <CloseButton onClick={closeForm} className="review-form__close"/>
+                    <CloseButton onClick={onCloseFormButtonClick} className="review-form__close"/>
                     <div className="review-form__wrapper">
                         <div className="review-form__left">
-                            <Input autoFocus onChange={(evt) => handleFieldChange(evt)} className="review-form__input"
+                            <Input autoFocus onChange={(evt) => onFieldChange(evt)} className="review-form__input"
                                    placeholder="Имя" isMandatory={true} name="name" value={name}
                                    label={isError.name ? 'Пожалуйста, заполните поле' : ''}/>
-                            <Input onChange={(evt) => handleFieldChange(evt)} className="review-form__input"
+                            <Input onChange={(evt) => onFieldChange(evt)} className="review-form__input"
                                    placeholder="Достоинства" name="dignity" value={dignity}/>
-                            <Input onChange={(evt) => handleFieldChange(evt)} className="review-form__input"
+                            <Input onChange={(evt) => onFieldChange(evt)} className="review-form__input"
                                    placeholder="Недостатки" name="limitations" value={limitations}/>
                         </div>
                         <div className="review-form__right">
                             <div className="review-form__stars-wrapper">
                                 <span className="review-form__stars-text">Оцените товар:</span>
-                                <StarBar className="review-form__star-bar" onChange={(evt) => handleFieldChange(evt)}
+                                <StarBar className="review-form__star-bar" onChange={(evt) => onFieldChange(evt)}
                                          rating={rating} size={30}/>
                             </div>
-                            <Textarea onChange={(evt) => handleFieldChange(evt)} className="review-form__textarea"
+                            <Textarea onChange={(evt) => onFieldChange(evt)} className="review-form__textarea"
                                       placeholder="Комментарий" isMandatory={true} name="comment" value={comment}
                                       label={isError.comment ? 'Пожалуйста, заполните поле' : ''}/>
                         </div>
                     </div>
-                    <Button onClick={(evt) => onSubmit(evt)}
+                    <Button onClick={(evt) => onSubmitClick(evt)}
                             nameButton="Оставить отзыв" type="submit" className="review-form__submit"/>
                 </form>
             </div>

@@ -2,24 +2,9 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Arrow} from '../arrow/arrow';
 
-const Slider = ({className}) => {
+const Slider = ({className, images}) => {
 
     const [currentImg, setNewCurrentImg] = useState(0);
-
-    const images = [
-        {
-            src: '/images/img-0.png',
-            alt: 'Фото автомобиля'
-        },
-        {
-            src: '/images/img-1.png',
-            alt: 'Фото салона автомобиля'
-        },
-        {
-            src: '/images/img-2.png',
-            alt: 'Фото панели приборов автомобиля'
-        }
-    ];
 
     return (
         <section className={`${className} slider`}>
@@ -50,7 +35,12 @@ const Slider = ({className}) => {
 };
 
 Slider.propTypes = {
-    className: PropTypes.string.isRequired
+    className: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(
+        PropTypes.shape({
+            src: PropTypes.string.isRequired,
+            alt: PropTypes.string
+    }))
 };
 
 export {Slider};

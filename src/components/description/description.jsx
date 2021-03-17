@@ -3,12 +3,16 @@ import {LinkButton} from '../link-button/link-button';
 import {Slider} from '../slider/slider';
 import {IconList} from '../icon-list/icon-list';
 import {Tabs} from '../tabs/tabs';
+import {useSelector} from 'react-redux';
 
 const Description = () => {
+
+    const images = useSelector((state) => state.images);
+
     return (
         <main className="wrapper description">
             <div className="description__info">
-                <Slider className="description__slider"/>
+                <Slider className="description__slider" images={images}/>
                 <div className="description__wrapper">
                     <h1 className="description__title">Марпех 11</h1>
                     <IconList className="description__icons"/>

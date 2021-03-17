@@ -5,6 +5,19 @@ export const Actions = {
     SAVE_NEW_REVIEW: 'SAVE_NEW_REVIEW'
 };
 
+export const Tabs = {
+    CHARACTERISTICS: 'CHARACTERISTICS',
+    REVIEWS: 'REVIEWS',
+    CONTACTS: 'CONTACTS'
+};
+
+export const TabNames = {
+    CHARACTERISTICS: 'Характеристики',
+    REVIEWS: 'Отзывы',
+    CONTACTS: 'Контакты'
+};
+
+
 export const RATING_VALUES = ['1', '2', '3', '4', '5'];
 
 export const ESC_CODE = 27;

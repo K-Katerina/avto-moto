@@ -13,5 +13,8 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
-  overflow: scroll;
+
+  @media (max-width: $mobile-width-only) {
+    overflow: auto;
+  }
 }

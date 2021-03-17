@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CloseButton = ({className, onClick}) => {
     return (
-        <button className={`${className} close-button`} onClick={() => onClick()} type="button">Закрыть</button>
+        <button className={`${className} close-button`} onClick={(evt) => onClick(evt)} type="button">Закрыть</button>
     );
 };
 

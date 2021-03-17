@@ -13,7 +13,21 @@ const DEFAULT_REVIEW = {
 
 const createInitialState = (reviews) => ({
     reviews: reviews || [DEFAULT_REVIEW],
-    isOpenModal: false
+    isOpenModal: false,
+    images: [
+        {
+            src: '/images/img-0.png',
+            alt: 'Фото автомобиля'
+        },
+        {
+            src: '/images/img-1.png',
+            alt: 'Фото салона автомобиля'
+        },
+        {
+            src: '/images/img-2.png',
+            alt: 'Фото панели приборов автомобиля'
+        }
+    ]
 });
 
 export const loadState = () => {

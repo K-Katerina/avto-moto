@@ -16,7 +16,7 @@
   @include input-field;
   height: 114px;
   min-height: 51px;
-  resize: vertical;
+  resize: none;
 }
 
 .textarea__error {

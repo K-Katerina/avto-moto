@@ -6,6 +6,7 @@ const Arrow = ({isRotate = false, onClick, className, disabled = false}) => {
     return (
         <button onClick={(evt) => onClick(evt)} className={`${className} arrow`} disabled={disabled}>
             <ArrowImg className={`arrow__img ${isRotate && 'rotate180'}`}/>
+            <span className="visually-hidden">Кнопка ${isRotate ? 'влево' : 'вправо'}</span>
         </button>
     );
 };

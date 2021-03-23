@@ -51,7 +51,7 @@
   padding: 0 18px;
 
   min-height: 52px;
-  max-width: max-content;
+  max-width: fit-content;
 
   background-color: $color-main;
   color: $color-background;
@@ -91,6 +91,7 @@
   min-width: 194px;
 
   letter-spacing: normal;
+  align-items: center;
 
   background-color: $color-background;
   color: $color-service--light;

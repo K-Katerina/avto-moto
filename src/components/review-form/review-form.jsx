@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {Button} from '../button/button';
 import {Input} from '../input/input';
 import {Textarea} from '../textarea/textarea';
@@ -10,8 +10,8 @@ import {StarBar} from '../star-bar/star-bar';
 import {ESC_CODE} from '../../const';
 
 const ReviewForm = () => {
+
     const dispatch = useDispatch();
-    const isOpen = useSelector(state => state.isOpenModal);
     const overlayRef = useRef();
 
     const emptyFormData = {
@@ -31,11 +31,14 @@ const ReviewForm = () => {
     });
 
     useEffect(() => {
+        const preventWheelScroll = (evt) => evt.preventDefault();
         document.addEventListener('keydown', onEscClick);
+        window.addEventListener('wheel', preventWheelScroll, { passive: false });
         return () => {
             document.removeEventListener('keydown', onEscClick);
+            window.removeEventListener('wheel', preventWheelScroll);
         };
-    }, [isOpen]);
+    }, []);
 
     const closeForm = () => {
         setError({name: false, comment: false});
@@ -77,39 +80,35 @@ const ReviewForm = () => {
     };
 
     return (
-        <>
-            {isOpen &&
-            <div className="overlay" ref={overlayRef} onClick={onOverlayClick}>
-                <form className="review-form">
-                    <h2 className="review-form__title">Оставить отзыв</h2>
-                    <CloseButton onClick={onCloseFormButtonClick} className="review-form__close"/>
-                    <div className="review-form__wrapper">
-                        <div className="review-form__left">
-                            <Input autoFocus onChange={(evt) => onFieldChange(evt)} className="review-form__input"
-                                   placeholder="Имя" isMandatory={true} name="name" value={name}
-                                   label={isError.name ? 'Пожалуйста, заполните поле' : ''}/>
-                            <Input onChange={(evt) => onFieldChange(evt)} className="review-form__input"
-                                   placeholder="Достоинства" name="dignity" value={dignity}/>
-                            <Input onChange={(evt) => onFieldChange(evt)} className="review-form__input"
-                                   placeholder="Недостатки" name="limitations" value={limitations}/>
-                        </div>
-                        <div className="review-form__right">
-                            <div className="review-form__stars-wrapper">
-                                <span className="review-form__stars-text">Оцените товар:</span>
-                                <StarBar className="review-form__star-bar" onChange={(evt) => onFieldChange(evt)}
-                                         rating={rating} size={30}/>
-                            </div>
-                            <Textarea onChange={(evt) => onFieldChange(evt)} className="review-form__textarea"
-                                      placeholder="Комментарий" isMandatory={true} name="comment" value={comment}
-                                      label={isError.comment ? 'Пожалуйста, заполните поле' : ''}/>
-                        </div>
+        <div className="overlay" ref={overlayRef} onClick={onOverlayClick}>
+            <form className="review-form">
+                <h2 className="review-form__title">Оставить отзыв</h2>
+                <CloseButton onClick={onCloseFormButtonClick} className="review-form__close"/>
+                <div className="review-form__wrapper">
+                    <div className="review-form__left">
+                        <Input autoFocus onChange={(evt) => onFieldChange(evt)} className="review-form__input"
+                               placeholder="Имя" isMandatory={true} name="name" value={name}
+                               label={isError.name ? 'Пожалуйста, заполните поле' : ''}/>
+                        <Input onChange={(evt) => onFieldChange(evt)} className="review-form__input"
+                               placeholder="Достоинства" name="dignity" value={dignity}/>
+                        <Input onChange={(evt) => onFieldChange(evt)} className="review-form__input"
+                               placeholder="Недостатки" name="limitations" value={limitations}/>
                     </div>
-                    <Button onClick={(evt) => onSubmitClick(evt)}
-                            nameButton="Оставить отзыв" type="submit" className="review-form__submit"/>
-                </form>
-            </div>
-            }
-        </>
+                    <div className="review-form__right">
+                        <div className="review-form__stars-wrapper">
+                            <span className="review-form__stars-text">Оцените товар:</span>
+                            <StarBar className="review-form__star-bar" onChange={(evt) => onFieldChange(evt)}
+                                     rating={rating} size={30}/>
+                        </div>
+                        <Textarea onChange={(evt) => onFieldChange(evt)} className="review-form__textarea"
+                                  placeholder="Комментарий" isMandatory={true} name="comment" value={comment}
+                                  label={isError.comment ? 'Пожалуйста, заполните поле' : ''}/>
+                    </div>
+                </div>
+                <Button onClick={(evt) => onSubmitClick(evt)}
+                        nameButton="Оставить отзыв" type="submit" className="review-form__submit"/>
+            </form>
+        </div>
     );
 };
 

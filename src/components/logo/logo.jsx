@@ -6,8 +6,9 @@ import {ReactComponent as LogoImgTxt} from './logo-txt.svg';
 const Logo = ({className}) => {
     return (
         <a href="/" className={`${className} logo`}>
-            <LogoImg className="logo__img"/>
+            <LogoImg alt="Логотип" className="logo__img"/>
             <LogoImgTxt className="logo__txt"/>
+            <span className="visually-hidden">Главная страница</span>
         </a>
     );
 };
